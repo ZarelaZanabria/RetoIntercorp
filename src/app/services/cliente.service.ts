@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
-/* import { AngularFirestore, DocumentReference } from '@angular/fire/firestore'; */
 import { Cliente } from '../interface/cliente';
-import { Observable, Subject } from 'rxjs';
-import * as firebase from 'firebase';
-import 'firebase/firestore';
+import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
@@ -19,7 +16,7 @@ export class ClienteService {
   }
 
   public getCustomers(): Observable<firebase.firestore.QuerySnapshot> {
-    return this.db.collection<Cliente>(this.clientCollectionName, ref => ref.orderBy('txtName', 'asc')).get();
+return this.db.collection<Cliente>(this.clientCollectionName, ref => ref.orderBy('txtName', 'asc')).get();
   }
 
 }

@@ -11,7 +11,7 @@ export class ClienteService {
   private clientCollectionName = 'customers';
 
   constructor(private db: AngularFirestore) {  }
-  public saveTodo(client: Cliente) {
+  public saveClient(client: Cliente) {
     return this.db.collection(this.clientCollectionName).add(client);
   }
 

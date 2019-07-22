@@ -4,9 +4,9 @@
 
 // tslint:disable-next-line:one-variable-per-declaration
 export const environment = {
-  production: false,
- firebase: {
-    apiKey:  'AIzaSyBN0VOSleU3Kl5lAV80O4x-XnUhp6cpUCc',
+  production: true,
+  firebase: {
+    apiKey: 'AIzaSyBN0VOSleU3Kl5lAV80O4x-XnUhp6cpUCc',
     authDomain: 'intercorp-dcf23.firebaseapp.com',
     databaseURL: 'https://intercorp-dcf23.firebaseio.com',
     projectId: 'intercorp-dcf23',

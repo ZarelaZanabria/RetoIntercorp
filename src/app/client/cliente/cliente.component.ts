@@ -38,7 +38,7 @@ export class ClienteComponent implements OnInit {
       return;
     }
     this.client = this.formClient.value;
-    this._ClienteService.saveTodo(this.client).then(resp => {
+    this._ClienteService.saveClient(this.client).then(resp => {
       console.log(resp);
     }).catch(err => console.error(err));
     this.getListCustomers();

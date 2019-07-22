@@ -15,7 +15,7 @@ export class ClienteComponent implements OnInit {
   public client: Cliente;
   public listCustomers: Cliente[] = [];
   // tslint:disable-next-line:variable-name
-  constructor(private formBuilder: FormBuilder, private _ClienteService: ClienteService) { }
+  constructor(private formBuilder: FormBuilder, private clienteService: ClienteService) { }
 
   ngOnInit() {
     this.formClient = this.formBuilder.group({
@@ -38,7 +38,7 @@ export class ClienteComponent implements OnInit {
       return;
     }
     this.client = this.formClient.value;
-    this._ClienteService.saveClient(this.client).then(resp => {
+    this.clienteService.saveClient(this.client).then(resp => {
       console.log(resp);
     }).catch(err => console.error(err));
     this.getListCustomers();
@@ -46,7 +46,7 @@ export class ClienteComponent implements OnInit {
   }
 
   getListCustomers() {
-    this._ClienteService.getCustomers().subscribe(response => {
+    this.clienteService.getCustomers().subscribe(response => {
       this.listCustomers = [];
       response.docs.forEach(item => {
         const data = item.data();

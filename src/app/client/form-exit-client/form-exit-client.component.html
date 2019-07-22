@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Edad</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Fecha de Muerte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of listCustomers, let index = index">
+          <td>{{client.name}}</td>
+          <td>{{client.lastName}}</td>
+          <td>{{client.age}}</td>
+          <td>{{client.birthdate| date}}</td>
+          <td>{{client.birthdate| date}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

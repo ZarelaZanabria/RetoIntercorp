@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header card-header-text" data-background-color="blue">
+          <h4 class="card-title">Registro de Datos </h4>
+        </div>
+        <div class="card-body">
+
+          <form [formGroup]="formClient">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group label-floating">
+                <label id="lblName" name="lblName" class="control-label">Nombre
+                  <span class="star">*</span></label>
+                <input type="text" id="txtName" name="txtName" formControlName="txtName" class="form-control">
+                <span
+                  *ngIf="formClient.controls['txtName'].touched && formClient.controls['txtName'].errors?.required">Ingrese
+                  por favor su nombre.</span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group label-floating">
+                <label id="lblLastName" name="lblLastName" class="control-label">Apellidos
+                  <span class="star">*</span></label>
+                <input type="text" id="txtLastName" name="txtLastName" formControlName="txtLastName"
+                  class="form-control">
+                <span
+                  *ngIf="formClient.controls['txtLastName'].touched && formClient.controls['txtLastName'].errors?.required">Ingrese
+                  por favor sus apellidos.</span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group label-floating">
+                <label id="lblAge" name="lblAge" class="control-label">Edad
+                  <span class="star">*</span></label>
+                <input type="number" id="txtAge" name="txtAge" formControlName="txtAge" class="form-control">
+                <span
+                  *ngIf="formClient.controls['txtAge'].touched && formClient.controls['txtAge'].errors?.required">Ingrese
+                  por favor su edad.</span>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group label-floating">
+                <label id="lblBirthdate" name="lblBirthdate" class="control-label">Fecha de Nacimiento
+                  <span class="star">*</span></label>
+                <input type="date" id="txtBirthdate" name="txtBirthdate" formControlName="txtBirthdate"
+                  class="form-control" datepicker minlength="10" min="10" maxlength="10" max="10">
+                <span
+                  *ngIf="formClient.controls['txtBirthdate'].touched && formClient.controls['txtBirthdate'].errors?.required">Ingrese
+                  por favor su fecha de nacimiento.</span>
+              </div>
+            </div>
+          </form>
+          <button type="button" class="btn btn-primary" (click)="saveClient()" [disabled]="formClient.invalid">Agregar
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6 ">
+      <img width="100" alt="Angular Logo" src="https://tustareas.com.co/wp-content/uploads/2017/11/Tus-tareas.png">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="text-center">Datos de Salida de Clientes </h6>
+          <form [formGroup]="formClientOuput">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group label-floating">
+                <label id="lblAverage" name="lblAverage" class="control-label">Promedio de edades </label>
+                <input type="number" id="txtAverage" name="txtAverage" formControlName="txtAverage"
+                  class="form-control">
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="form-group label-floating">
+                <label id="lblStandardDeviation" name="lblStandardDeviation" class="control-label">Desviación
+                  Estandar</label>
+                <input type="text" id="txtStandardDeviation" name="txtStandardDeviation"
+                  formControlName="txtStandardDeviation" class="form-control" >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--  <app-form-exit-client></app-form-exit-client> -->
+</div>

@@ -2,8 +2,18 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// tslint:disable-next-line:one-variable-per-declaration
 export const environment = {
-  production: false
+  production: false,
+ firebase: {
+    apiKey:  'AIzaSyBN0VOSleU3Kl5lAV80O4x-XnUhp6cpUCc',
+    authDomain: 'intercorp-dcf23.firebaseapp.com',
+    databaseURL: 'https://intercorp-dcf23.firebaseio.com',
+    projectId: 'intercorp-dcf23',
+    storageBucket: 'intercorp-dcf23.appspot.com',
+    messagingSenderId: '23112451980',
+    appId: '1:23112451980:web:71605661284ea3db'
+  }
 };
 
 /*

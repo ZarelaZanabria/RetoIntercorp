@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
@@ -12,6 +11,8 @@ import { FormExitClientComponent } from './client/form-exit-client/form-exit-cli
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MenuComponent } from './menu/menu.component';
+import { firebase } from '@firebase/app';
+import 'firebase/app';
 
 @NgModule({
   declarations: [

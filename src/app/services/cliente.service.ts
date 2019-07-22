@@ -10,13 +10,15 @@ export class ClienteService {
 
   private clientCollectionName = 'customers';
 
-  constructor(private db: AngularFirestore) {  }
+  constructor(private db: AngularFirestore) { }
   public saveClient(client: Cliente) {
     return this.db.collection(this.clientCollectionName).add(client);
   }
 
-  public getCustomers(): Observable<firebase.firestore.QuerySnapshot> {
-return this.db.collection<Cliente>(this.clientCollectionName, ref => ref.orderBy('txtName', 'asc')).get();
+  public getCustomers() {
+
+     return this.db.collection(this.clientCollectionName).snapshotChanges();
+    /* return this.db.collection<Cliente>(this.clientCollectionName, ref => ref.orderBy('txtName', 'asc')).get(); */
   }
 
 }

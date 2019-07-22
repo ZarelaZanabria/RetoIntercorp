@@ -13,9 +13,9 @@ export class ClienteComponent implements OnInit {
   public formClient: FormGroup;
   public formClientOuput: FormGroup;
   public client: Cliente;
-  public listCustomers: Cliente[] = [];
+  public listCustomers: any [] = [];
   // tslint:disable-next-line:variable-name
-  constructor(private formBuilder: FormBuilder, private clienteService: ClienteService) { }
+  constructor(private formBuilder: FormBuilder, private _ClienteService: ClienteService) { }
 
   ngOnInit() {
     this.formClient = this.formBuilder.group({
@@ -38,7 +38,7 @@ export class ClienteComponent implements OnInit {
       return;
     }
     this.client = this.formClient.value;
-    this.clienteService.saveClient(this.client).then(resp => {
+    this._ClienteService.saveClient(this.client).then(resp => {
       console.log(resp);
     }).catch(err => console.error(err));
     this.getListCustomers();
@@ -46,20 +46,15 @@ export class ClienteComponent implements OnInit {
   }
 
   getListCustomers() {
-    this.clienteService.getCustomers().subscribe(response => {
+    this._ClienteService.getCustomers().subscribe(response => {
       this.listCustomers = [];
-      response.docs.forEach(item => {
-        const data = item.data();
-        const ids = item.id;
-        const listClient: Cliente = {
-          id: ids,
-          name: data.txtName,
-          lastName: data.txtLastName,
-          age: data.txtAge,
-          birthdate: data.txtBirthdate,
-        };
-        this.listCustomers.push(listClient);
+      response.forEach((item: any) => {
+        this.listCustomers.push(item.payload.doc.data());
+        console.log('response', response, item.payload.doc.data());
       });
+
+      console.log('que es list ', this.listCustomers);
+
       this.calculateAverage(this.listCustomers);
       localStorage.setItem('clientes', JSON.stringify(this.listCustomers));
     });
@@ -67,8 +62,8 @@ export class ClienteComponent implements OnInit {
 
   calculateAverage(arr) {
 
-    const sumaAge = arr.reduce((a, b) => ({ age: a.age + b.age }), { age: 0 });
-    const average = sumaAge.age / arr.length;
+    const sumaAge = arr.reduce((a, b) => ({ txtAge: a.txtAge + b.txtAge }), { txtAge: 0 });
+    const average = sumaAge.txtAge / arr.length;
     // tslint:disable-next-line:no-string-literal
     this.formClientOuput.controls['txtAverage'].setValue(average);
     this.StandardDeviation(arr, average);
@@ -79,7 +74,7 @@ export class ClienteComponent implements OnInit {
     let standardDeviation = 0;
     let suma = 0;
     arr.forEach(element => {
-      return suma = suma + Math.pow((Math.abs(element.age - average)), 2);
+      return suma = suma + Math.pow((Math.abs(element.txtAge - average)), 2);
     });
     standardDeviation = Math.sqrt(suma / arr.length);
     // tslint:disable-next-line:no-string-literal

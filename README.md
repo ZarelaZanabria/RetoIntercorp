@@ -29,5 +29,5 @@ Lo primero que se hizo es identificar las tareas principales para poder realizar
 Para deploy presentamos un problema con firestore, e intentado solucionar pero no e logrado la manera correcta estoy buscando la solución. 
 ![sprint](https://lh3.googleusercontent.com/-Hsb8b6bIZ94/XTV-lI_P_nI/AAAAAAAAIYQ/Qwf9cagqsaUe2D5pOmJqsQVwrG7H3jwVQCK8BGAs/s0/2019-07-22.png)
 
-Se logro resover el problema 
+Se logro resolver el problema 
 ![sprint](https://lh3.googleusercontent.com/-duhOmxi9JZs/XTZwVBUQgJI/AAAAAAAAAz8/KROUNoqAyII2CCJP7p2AxiRNRi9E335GwCK8BGAs/s0/2019-07-22.png)
